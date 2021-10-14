@@ -17,11 +17,11 @@ export default function App(props) {
 
     
       <Pressable style={styles.button2} onPress={onPress}>
-        <Image style={styles.icon} source={require('./assets/apple.png')}/>
+      <Image style={styles.icon1} source={require('./assets/apple.png')}/>
         <Text style={styles.buttontext2}>{apple}</Text>
       </Pressable>
 
-      <Text style={styles.text3}>Not a member? Sign up </Text>
+      <Text style={{ color: '#737272' }}>Not a member?<Text style={{ color: 'red' }}> Sign up</Text> </Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
   },
   image :{
     marginBottom: 90,
-    width: 180,
-    height: 180,
+    width: 200,
+    height: 200,
     transform: [{ rotate: '45deg' }],
     borderRadius: 30
 
@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
   },
   button1: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     marginTop: 10,
     marginBottom: 8,
     alignItems: 'center',
@@ -66,9 +65,12 @@ const styles = StyleSheet.create({
 
   },
   buttontext:{
-    color: '#000000'
+    color: '#000000',
+    fontSize: 15,
+    marginLeft: 10,
   },
   button2: {
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 15,
@@ -79,10 +81,18 @@ const styles = StyleSheet.create({
 
   },
   buttontext2: {
-    color: '#ffffff'
+    color: '#ffffff',
+    fontSize: 15,
+    marginLeft: 10,
   },
   icon:{
     width: 20,
+    height: 20,
 
+  },
+  icon1:{
+    color: '#ffffff',
+    width: 20,
+    height: 20
   }
 });
