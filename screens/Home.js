@@ -4,6 +4,7 @@ import { StyleSheet, Text, View , Image,Pressable} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DetailsScreen from './Category';
+import CartScreen from './Cart';
 
 function HomeScreen(props) {
   const {navigation, title = 'Login with Gmail' ,apple = 'Login with Apple'} = props;
@@ -41,6 +42,7 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Category" component={DetailsScreen} />
+        <Stack.Screen name="Cart" component={CartScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

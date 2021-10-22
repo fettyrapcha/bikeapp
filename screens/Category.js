@@ -1,29 +1,50 @@
 import React from 'react';
 import {
+    SafeAreaView,
     StyleSheet,
     Text,
     View,
-    TouchableOpacity,
     Image,
-    Alert,
     ScrollView,
-    FlatList,
-    Button,
+    TouchableOpacity,
   } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import CartScreen from './Cart'
 
 
-export default function DetailsScreen() {
+
+export default function DetailsScreen(props) {
+    const {navigation} = props;
 
     return (
-        <View style={styles.container}>
-            <ScrollView>
+        <SafeAreaView style={styles.container}>
+            <ScrollView style={styles.scroll}>
+                <View style={{display: 'flex',flexDirection: 'row'}}>
+                    <View style={styles.addToCarContainer}>
+                        <TouchableOpacity style={styles.shareButton} onPress={() => navigation.navigate('Category')}>
+                        <Text style={styles.shareButtonText}><Text  style={{color: 'orange'}} >All</Text></Text>  
+                        </TouchableOpacity>
+                    </View> 
 
-                <View style={{flexDirection: 'row'}}>
-                <Button style={styles.shareButton}  onPress={() => navigation.navigate('Category')}>
-                    <Text style={styles.shareButtonText}>asd</Text>
-                </Button>
+                    <View style={styles.addToCarContainer}>
+                        <TouchableOpacity style={styles.shareButton} onPress={() => navigation.navigate('Category')}>
+                        <Text style={styles.shareButtonText}>Roadbike</Text>  
+                        </TouchableOpacity>
+                    </View> 
+
+                    <View style={styles.addToCarContainer}>
+                        <TouchableOpacity style={styles.shareButton} onPress={() => navigation.navigate('Category')}>
+                        <Text style={styles.shareButtonText}>Mountain</Text>  
+                        </TouchableOpacity>
+                    </View> 
+
+                    <View style={styles.addToCarContainer}>
+                        <TouchableOpacity style={styles.shareButton} onPress={() => navigation.navigate('Category')}>
+                        <Text style={styles.shareButtonText}>Sport</Text>  
+                        </TouchableOpacity>
+                    </View> 
 
                 </View>
 
@@ -32,22 +53,24 @@ export default function DetailsScreen() {
                         <Image style={styles.productImg} source={require('../assets/bike1.png')}/>
                         <Text style={styles.name}>Pinarello Bike</Text>
                         <Text style={styles.price} h4>
-                        $ 1,700.00
+                            $ <Text style={{ fontWeight: 'bold', color: 'black' }}>1,700.00</Text>
                         </Text>
-                        <Text h6 style={styles.description}>
-                        added 2h ago
-                        </Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+                        <Text h6 style={styles.description} >added to cert</Text>  
+                        </TouchableOpacity>
+                        
+                    
                     </View>
 
                     <View style={styles.products}>
                         <Image style={styles.productImg} source={require('../assets/bike8.png')}/>
                         <Text style={styles.name}>Ninja Bike</Text>
                         <Text style={styles.price} h4>
-                        $ 1,200.00
+                            $ <Text style={{ fontWeight: 'bold', color: 'black' }}>1,200.00</Text>
                         </Text>
-                        <Text h6 style={styles.description}>
-                        added 5h ago
-                        </Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+                        <Text h6 style={styles.description} >added to cert</Text>  
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.row}>
@@ -55,22 +78,22 @@ export default function DetailsScreen() {
                         <Image style={styles.productImg} source={require('../assets/bike7.png')}/>
                         <Text style={styles.name}>Schwinn Bike</Text>
                         <Text style={styles.price} h4>
-                        $ 1,500.00
+                         $ <Text style={{ fontWeight: 'bold', color: 'black' }}>1,500.00</Text>
                         </Text>
-                        <Text h6 style={styles.description}>
-                        added 1h ago
-                        </Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+                        <Text h6 style={styles.description} >added to cert</Text>  
+                        </TouchableOpacity>
                     </View>
 
                     <View style={styles.products}>
                         <Image style={styles.productImg} source={require('../assets/bike5.png')}/>
                         <Text style={styles.name}>Norco Bike</Text>
                         <Text style={styles.price} h4>
-                        $ 1,100.00
+                         $ <Text style={{ fontWeight: 'bold', color: 'black' }}>1,100.00</Text>
                         </Text>
-                        <Text h6 style={styles.description}>
-                        added 2h ago
-                        </Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+                        <Text h6 style={styles.description} >added to cert</Text>  
+                        </TouchableOpacity>
                     </View>
                 </View>
 
@@ -79,79 +102,103 @@ export default function DetailsScreen() {
                         <Image style={styles.productImg} source={require('../assets/bike6.png')}/>
                         <Text style={styles.name}>Mountain Bike</Text>
                         <Text style={styles.price} h4>
-                        $ 1,900.00
+                         $ <Text style={{ fontWeight: 'bold', color: 'black' }}>1,900.00</Text>
                         </Text>
-                        <Text h6 style={styles.description}>
-                        added 8h ago
-                        </Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+                        <Text h6 style={styles.description} >added to cert</Text>  
+                        </TouchableOpacity>
                     </View>
 
                     <View style={styles.products}>
                         <Image style={styles.productImg} source={require('../assets/bike4.png')}/>
                         <Text style={styles.name}>Racing Bike</Text>
                         <Text style={styles.price} h4>
-                        $ 980.00
+                         $ <Text style={{ fontWeight: 'bold', color: 'black' }}>980.00</Text>
                         </Text>
-                        <Text h6 style={styles.description}>
-                        added 1h ago
-                        </Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+                        <Text h6 style={styles.description} >added to cert</Text>  
+                        </TouchableOpacity>
                     </View>
                 </View>
             </ScrollView>
-        </View>
+        </SafeAreaView>
 
     
     );
   }
+
+const Tab = createBottomTabNavigator();
+
+function App() {
+  return (
+     <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Category" component={DetailsScreen} />
+        <Tab.Screen name="Cart" component={CartScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
+
+
   
-  const Stack = createNativeStackNavigator();
-  
-  function App() {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Details" component={DetailsScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  }
   const styles = StyleSheet.create({
 
     container: {
         flex: 1,
+        flexDirection: 'row',
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        
+        
     },
 
+    scroll: {
+        backgroundColor: 'white',
+        flex: 1, 
+        marginLeft: 15, 
+        marginRight: 15 
+    },
 
+    shareButton: {
+        marginTop:10,
+        width: 100,
+        height:45,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius:10,
+        backgroundColor: "#e8e8e8",
+      },
+      shareButtonText:{
+        color: "#000000",
+        fontSize:20,
+      },
+
+
+    
     row:{
-      
+      flex: 1,
       flexDirection: 'row',
       marginTop:20,
+      alignItems: 'center',
+      justifyContent: 'center',
+      
       
       
     },
     
-    // shareButton: {
-    //     marginTop:10,
-    //     height:45,
-    //     flexDirection: 'row',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     borderRadius:30,
-    //     backgroundColor: "#00BFFF",
-    //   },
-    //   shareButtonText:{
-    //     color: "#FFFFFF",
-    //     fontSize:20,
-    //   },
-    //   addToCarContainer:{
-    //     marginHorizontal:30
-    //   },
+
+
+      addToCarContainer:{
+        display: 'flex',
+        flexDirection:'row',
+        marginHorizontal:10,
+        paddingHorizontal: 10
+      },
 
     products:{
+      flex : 1,
+      flexDirection: 'column',
       alignItems:'center',
       marginHorizontal:10,
       backgroundColor: '#e8e8e8',
@@ -159,26 +206,29 @@ export default function DetailsScreen() {
 
     },
     productImg:{
-      width:180,
-      height:180,
+      width:160,
+      height:160,
       
     },
     name:{
-      fontSize:28,
+      fontSize:20,
       color:"#696969",
       fontWeight:'bold'
     },
     price:{
       marginTop:10,
       fontSize:18,
-      color:"green",
+      color:"orange",
       fontWeight:'bold'
     },
     description:{
       textAlign:'center',
       marginTop:10,
-      color:"#696969",
-      paddingBottom: 5
+      color:"white",
+      backgroundColor: 'orange',
+      padding: 5,
+      borderRadius: 6,
+      marginBottom: 5,
     },
     
   }); 
